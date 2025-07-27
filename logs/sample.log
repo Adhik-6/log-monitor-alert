@@ -1,0 +1,30 @@
+2025-07-20 10:00:01,123 INFO  [main] com.example.app.AppStarter - Application initialized successfully.
+2025-07-20 10:00:01,456 DEBUG [main] com.example.app.ConfigLoader - Loading configurations from config.properties.
+2025-07-20 10:00:01,789 INFO  [main] com.example.app.ServiceA - Service A started on port 8080.
+2025-07-20 10:00:02,012 INFO  [main] com.example.app.ServiceB - Service B initialized.
+2025-07-20 10:00:03,345 INFO  [Thread-1] com.example.app.data.DatabaseConnector - Attempting to connect to database: jdbc:mysql://localhost:3306/appdb
+2025-07-20 10:00:03,678 DEBUG [Thread-1] com.example.app.data.DatabaseConnector - Connection pool acquired.
+2025-07-20 10:00:04,001 INFO  [Thread-1] com.example.app.data.DatabaseConnector - Database connection established.
+2025-07-20 10:00:04,334 INFO  [Thread-2] com.example.app.UserProcessor - Processing user ID: 1001.
+2025-07-20 10:00:04,667 DEBUG [Thread-2] com.example.app.UserProcessor - Fetching user data for 1001 from cache.
+2025-07-20 10:00:05,000 INFO  [Thread-2] com.example.app.UserProcessor - User 1001 data processed.
+2025-07-20 10:00:05,333 WARNING [Thread-3] com.example.app.file.FileManager - Disk space low: 15% remaining on /var/log.
+2025-07-20 10:00:05,666 INFO  [Thread-4] com.example.app.NetworkMonitor - Pinging external service: api.example.com
+2025-07-20 10:00:06,000 INFO  [Thread-4] com.example.app.NetworkMonitor - External service api.example.com response time: 50ms.
+2025-07-20 10:00:06,333 DEBUG [Thread-5] com.example.app.Analytics - Collecting usage statistics.
+2025-07-20 10:00:06,666 ERROR [Thread-6] com.example.app.PaymentGateway - Payment transaction 5001 failed: Insufficient funds.
+2025-07-20 10:00:07,000 INFO  [Thread-2] com.example.app.UserProcessor - Processing user ID: 1002.
+2025-07-20 10:00:07,333 INFO  [Thread-7] com.example.app.ReportGenerator - Generating daily report.
+2025-07-20 10:00:07,666 INFO  [Thread-7] com.example.app.ReportGenerator - Report generation complete: daily_report_20250720.pdf
+2025-07-20 10:00:08,000 DEBUG [Thread-8] com.example.app.CacheManager - Cache refresh initiated.
+2025-07-20 10:00:08,333 WARNING [Thread-9] com.example.app.SecurityMonitor - Unusual login attempt from IP: 192.168.1.105
+2025-07-20 10:00:08,666 ERROR [Thread-1] com.example.app.data.DatabaseConnector - Database connection lost. Reconnecting...
+2025-07-20 10:00:09,000 INFO  [Thread-1] com.example.app.data.DatabaseConnector - Database reconnected successfully.
+2025-07-20 10:00:09,333 INFO  [Thread-10] com.example.app.NotificationService - Sending email to admin@example.com
+2025-07-20 10:00:09,666 INFO  [Thread-10] com.example.app.NotificationService - Email sent.
+2025-07-20 10:00:10,000 ERROR [main] com.example.app.AppStarter - Unhandled exception during startup: java.lang.NullPointerException
+2025-07-20 10:00:10,333 DEBUG [main] com.example.app.ShutdownHook - Initiating graceful shutdown.
+2025-07-20 10:00:10,666 INFO  [main] com.example.app.ServiceA - Service A stopped.
+2025-07-20 10:00:11,000 INFO  [main] com.example.app.ServiceB - Service B stopped.
+2025-07-20 10:00:11,333 INFO  [main] com.example.app.AppStarter - Application shut down.
+2025-07-20 10:00:11,333 ERROR [main] com.example.app.AppStarter - Something went wrong.
