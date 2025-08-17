@@ -6,10 +6,32 @@ log_paths:
   # - /var/log/syslog
 
 patterns:
-  - Error
-  - failed
-  - unauthorized
-  - denied
+  # SSH login failures
+  - "Failed password for .* from .* port .* ssh2"
+  - "Invalid user .* from .*"
+  - "Connection closed by .* port .* \[preauth\]"
+  - "Received disconnect from .*: 11: Bye Bye"
+  - "error: PAM: Authentication failure for .* from .*"
+
+  # Successful SSH login
+  - "Accepted password for .* from .* port .* ssh2"
+  - "Accepted publickey for .* from .* port .* ssh2"
+
+  # sudo related
+  - "sudo: .* : .*authentication failure"
+  - "sudo: pam_unix\\(sudo:auth\\): authentication failure"
+  - "user .* is not allowed to run sudo on .*"
+
+  # systemd-logind
+  - "New session .* of user .*"
+  - "Removed session .*"
+  - "Session .* logged out"
+
+  # General unauthorized / permission issues
+  - "permission denied"
+  - "unauthorized"
+  - "authentication failure"
+
 
 email:
   rate_limit_seconds: 300
