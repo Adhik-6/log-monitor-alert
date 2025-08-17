@@ -6,22 +6,14 @@ log_paths:
   # - /var/log/syslog
 
 patterns:
-  - name: error log
-    regex: "Error"
-    level: critical
-
-  # - name: Sudo Attempt
-  #   regex: "sudo: .* : TTY=.* ; PWD=.* ; USER=.* ; COMMAND=.*"
-  #   level: warning
+  - Error
+  - failed
+  - unauthorized
+  - denied
 
 email:
   rate_limit_seconds: 300
   subject_prefix: "[LOG ALERT]"
-
-alert_levels:
-  critical: true
-  warning: true
-  info: false
 
 system_settings:
   sleep_interval: 5

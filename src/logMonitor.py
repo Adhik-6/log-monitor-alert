@@ -1,29 +1,34 @@
-import re
+import re, subprocess
 from alerts.emailAlerts import sendEmailAlerts
 
 class LogMonitor:
 
-  def __init__(self, log_file, pattern=None):
-    self.log_file = log_file
-    self.patterns = [ re.compile(x, re.I) for x in pattern ] if pattern else []
-    self.last_position = 0
-  
-  def checkLog(self):
-    try: 
-      with open(self.log_file, 'r') as f:
-        f.seek(self.last_position)
-        newLines = f.readlines()
-        self.last_position = f.tell()
+    def __init__(self, pattern=None, since="1h"):
+        """
+        :param pattern: List of regex patterns to match.
+        :param since: Time frame for journalctl (e.g., '1h', '30m', 'today').
+        """
+        self.patterns = [re.compile(x, re.I) for x in pattern] if pattern else []
+        self.since = since
 
-        for line in newLines:
-          if self._checkPatterns(line):
-            print(f"Alert: {line.strip()}")
-            # sendEmailAlerts(line.strip())
+    def checkLogs(self):
+        try:
+            process = subprocess.Popen(
+                ["journalctl", "-f", "--since=now", "--output=short-iso"],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True
+            )
 
-    except FileNotFoundError:
-      print(f"Log file {self.log_file} not found.")
-    except Exception as e:
-      print(f"An error occurred: {e}")
+            for line in process.stdout:
+                if self._checkPatterns(line):
+                    print(f"Alert: {line.strip()}")
+                    # sendEmailAlerts(line.strip())
 
-  def _checkPatterns(self, line):
-    return any(re.search(pattern, line) for pattern in self.patterns)
+        except subprocess.CalledProcessError as e:
+            print(f"Error running journalctl: {e}")
+        except Exception as e:
+            print(f"An error occurred: {e}")
+
+    def _checkPatterns(self, line):
+        return any(pattern.search(line) for pattern in self.patterns)
