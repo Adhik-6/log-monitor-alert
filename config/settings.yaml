@@ -1,36 +1,23 @@
-# config/settings.yaml
-
 log_paths:
   - logs/sample.log
   # - /var/log/auth.log
   # - /var/log/syslog
-
+  
 patterns:
-  # SSH login failures
-  - "Failed password for .* from .* port .* ssh2"
-  - "Invalid user .* from .*"
-  - "Connection closed by .* port .* \[preauth\]"
-  - "Received disconnect from .*: 11: Bye Bye"
-  - "error: PAM: Authentication failure for .* from .*"
+  # SSH failed logins (covers normal + "invalid user")
+  - 'Failed password for (?:invalid user )?.*'
 
-  # Successful SSH login
-  - "Accepted password for .* from .* port .* ssh2"
-  - "Accepted publickey for .* from .* port .* ssh2"
+  # Generic PAM authentication failures (covers su/sudo/sshd variants)
+  - 'pam_.*\(.*:auth\): authentication failure'
 
-  # sudo related
-  - "sudo: .* : .*authentication failure"
-  - "sudo: pam_unix\\(sudo:auth\\): authentication failure"
-  - "user .* is not allowed to run sudo on .*"
+  # su failures
+  - 'FAILED SU'
 
-  # systemd-logind
-  - "New session .* of user .*"
-  - "Removed session .*"
-  - "Session .* logged out"
+  # sudo wrong password bursts
+  - 'sudo: .* incorrect password attempts'
 
-  # General unauthorized / permission issues
-  - "permission denied"
-  - "unauthorized"
-  - "authentication failure"
+  # Catch-all phrase many PAM modules use
+  - 'authentication failure'
 
 
 email:
@@ -39,3 +26,4 @@ email:
 
 system_settings:
   sleep_interval: 5
+

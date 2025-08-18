@@ -53,6 +53,7 @@ def _sendEmail(subject, body):
 def sendEmailAlerts(line):
   now = time.time()
   lastTime = lastSentTime.get(line)
+  # print(f"Captured Log: {line}")
 
   if not lastTime or now - lastTime >= rateLimit:
       # If new OR cooldown expired → send immediately

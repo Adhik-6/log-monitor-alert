@@ -9,12 +9,14 @@ class LogMonitor:
     def checkLogs(self):
         try:
             process = subprocess.Popen(
-                ["journalctl", "-f", 
-                 "-u", "ssh", 
-                 "-u", "systemd-logind", 
-                 "-u", "sudo", 
-                 "--since=now", 
-                 "--output=short-iso"],
+    		[
+		    "journalctl", "-x", "-f",
+		    "--since=now",
+		    # "-o", "json",
+		    "SYSLOG_FACILITY=4",  # auth
+		    "+",
+		    "SYSLOG_FACILITY=10", # authpriv
+		],
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True
