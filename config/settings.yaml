@@ -22,8 +22,4 @@ patterns:
 
 email:
   rate_limit_seconds: 300
-  subject_prefix: "[LOG ALERT]"
-
-system_settings:
-  sleep_interval: 5
 
