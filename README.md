@@ -65,7 +65,7 @@ The LogMon is a lightweight Python-based tool that continuously watches Linux sy
 - [:gem: Acknowledgements](#gem-acknowledgements)
 
 <!-- About the Project -->
-# :star2: About the Project
+## :star2: About the Project
 System administrators often face the challenge of detecting suspicious activity in real time without being overwhelmed by log noise. Traditional log monitoring solutions can either be too heavy (full SIEMs) or too noisy (raw log tailing).
 
 The **LogMon** (*Log Monitoring and Alert System*) is designed as a lightweight, Python-powered solution that continuously monitors Linux logs using `journalctl -f`. Whenever a suspicious event such as failed login attempts, brute-force patterns, or privilege escalation is detected, the system sends **real-time email alerts** to the administrator using Python’s SMTP service.
@@ -79,7 +79,7 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 
 
 <!-- TechStack -->
-## 🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 | Platform       | Technologies Used                                |
 |----------------|--------------------------------------------------|
@@ -91,7 +91,7 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 
 
 <!-- Features -->
-## :dart: Features
+### :dart: Features
 
 - 🔍 **Real-time Log Monitoring** – Continuously tracks Linux system logs using `journalctl -f`.
 - 🚨 **Immediate Email Alerts** – Notifies the system administrator via SMTP when suspicious logs are detected.
@@ -104,10 +104,10 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 
 
 <!-- Getting Started -->
-# 	:toolbox: Getting Started
+## 	:toolbox: Getting Started
 
 <!-- Prerequisites -->
-## :bangbang: Prerequisites
+### :bangbang: Prerequisites
 
 - 🐍 Python 3.8+ & pip installed
 - 🐧 Linux system with systemd (project relies on journalctl)
@@ -118,7 +118,7 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 
 
 <!-- Env Variables -->
-## :key: Environment Variables
+### :key: Environment Variables
 
 To run this project, you will need to add the following environment variables.
 
@@ -130,7 +130,7 @@ RECEIVER_EMAIL=receiver@example.com
 
 
 <!-- Installation -->
-## :gear: Installation
+### :gear: Installation
 
 Clone the repository 
 ```bash
@@ -149,7 +149,7 @@ pip install -r requirements.txt
 
 
 <!-- Run Locally -->
-## :running: Setup
+### :running: Setup
 
 **1. Create a dedicated service user**
 
@@ -235,7 +235,7 @@ sudo systemctl disable logmonitor # Disable the service from starting on boot *D
 
 
 <!-- Running Tests -->
-## :test_tube: Running Tests
+### :test_tube: Running Tests
 
 To run tests, run the following command
 ```bash
@@ -251,7 +251,7 @@ sudo journalctl -u logmonitor -f
 
 
 <!-- ROADMAP -->
-# :compass: Roadmap
+## :compass: Roadmap
 
 - [ ] Add support for multiple alert channels (Slack, Discord, Telegram, SMS) in addition to email
 - [ ] Build a dashboard GUI to view logs, alerts, and suppression stats in real time
@@ -265,7 +265,7 @@ See the [open issues](https://github.com/Adhik-6/log-monitor-alert/issues) for a
 
 
 <!-- CONTRIBUTING -->
-# :wave: Contributing
+## :wave: Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -280,7 +280,7 @@ Don't forget to give the project a star! Thanks again!
 
 
 <!-- FAQ -->
-# :grey_question: FAQ
+## :grey_question: FAQ
 
 <details>
   <summary>Do I need root privileges to run this tool?</summary>
@@ -321,7 +321,7 @@ Don't forget to give the project a star! Thanks again!
 
 
 <!-- Acknowledgments -->
-# :gem: Acknowledgements
+## :gem: Acknowledgements
 
  - [ChartGPT](https://chatgpt.com)
  - [Shields.io](https://shields.io/)
