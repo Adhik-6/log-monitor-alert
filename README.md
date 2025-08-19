@@ -65,7 +65,7 @@ The LogMon is a lightweight Python-based tool that continuously watches Linux sy
 - [:gem: Acknowledgements](#gem-acknowledgements)
 
 <!-- About the Project -->
-## :star2: About the Project
+# :star2: About the Project
 System administrators often face the challenge of detecting suspicious activity in real time without being overwhelmed by log noise. Traditional log monitoring solutions can either be too heavy (full SIEMs) or too noisy (raw log tailing).
 
 The **LogMon** (*Log Monitoring and Alert System*) is designed as a lightweight, Python-powered solution that continuously monitors Linux logs using `journalctl -f`. Whenever a suspicious event such as failed login attempts, brute-force patterns, or privilege escalation is detected, the system sends **real-time email alerts** to the administrator using Python’s SMTP service.
@@ -79,7 +79,7 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 
 
 <!-- TechStack -->
-### 🛠️ Tech Stack
+## 🛠️ Tech Stack
 
 | Platform       | Technologies Used                                |
 |----------------|--------------------------------------------------|
@@ -91,7 +91,7 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 
 
 <!-- Features -->
-### :dart: Features
+## :dart: Features
 
 - 🔍 **Real-time Log Monitoring** – Continuously tracks Linux system logs using `journalctl -f`.
 - 🚨 **Immediate Email Alerts** – Notifies the system administrator via SMTP when suspicious logs are detected.
@@ -104,7 +104,7 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 
 
 <!-- Getting Started -->
-## 	:toolbox: Getting Started
+# 	:toolbox: Getting Started
 
 <!-- Prerequisites -->
 ### :bangbang: Prerequisites
