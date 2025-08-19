@@ -104,7 +104,6 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 - 🖥️ **Linux-Specific** – Designed for systemd-based distributions, making use of `journalctl` for log access.
 - ⚙️ **Configurable** – Adjustable rate-limit duration, email settings, and monitored log patterns.
 
----
 
 <!-- Getting Started -->
 ## 	:toolbox: Getting Started
