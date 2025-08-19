@@ -40,9 +40,9 @@
 
 </div>
 
-<p align="center">
+<!-- <p align="center">
 The LogMon is a lightweight Python-based tool that continuously watches Linux system logs in real time using <code>journalctl -f</code>. It automatically detects suspicious activity (e.g., failed login attempts, brute-force attacks, privilege escalation) and notifies the system administrator via email using Python's SMTP service. To prevent alert fatigue, it includes rate-limiting and de-duplication: repeated identical log entries trigger only one alert initially, with a summary email sent after a cooldown period. This ensures timely, actionable, and noise-free monitoring for system security.
-</p>
+</p> -->
 
 <br />
 
@@ -51,15 +51,14 @@ The LogMon is a lightweight Python-based tool that continuously watches Linux sy
 # :notebook_with_decorative_cover: Table of Contents <!-- omit in toc -->
 
 - [:star2: About the Project](#star2-about-the-project)
-- [🛠️ Tech Stack](#️-tech-stack)
+  - [🛠️ Tech Stack](#️-tech-stack)
   - [:dart: Features](#dart-features)
-  - [:key: Environment Variables](#key-environment-variables)
 - [:toolbox: Getting Started](#toolbox-getting-started)
   - [:bangbang: Prerequisites](#bangbang-prerequisites)
+  - [:key: Environment Variables](#key-environment-variables)
   - [:gear: Installation](#gear-installation)
   - [:running: Setup](#running-setup)
   - [:test\_tube: Running Tests](#test_tube-running-tests)
-- [:eyes: Usage](#eyes-usage)
 - [:compass: Roadmap](#compass-roadmap)
 - [:wave: Contributing](#wave-contributing)
 - [:grey\_question: FAQ](#grey_question-faq)
@@ -69,7 +68,7 @@ The LogMon is a lightweight Python-based tool that continuously watches Linux sy
 ## :star2: About the Project
 System administrators often face the challenge of detecting suspicious activity in real time without being overwhelmed by log noise. Traditional log monitoring solutions can either be too heavy (full SIEMs) or too noisy (raw log tailing).
 
-The **Log Monitoring and Alert System** is designed as a lightweight, Python-powered solution that continuously monitors Linux logs using `journalctl -f`. Whenever a suspicious event such as failed login attempts, brute-force patterns, or privilege escalation is detected, the system sends **real-time email alerts** to the administrator using Python’s SMTP service.
+The **LogMon** (*Log Monitoring and Alert System*) is designed as a lightweight, Python-powered solution that continuously monitors Linux logs using `journalctl -f`. Whenever a suspicious event such as failed login attempts, brute-force patterns, or privilege escalation is detected, the system sends **real-time email alerts** to the administrator using Python’s SMTP service.
 
 What makes this tool effective is its **intelligent alerting mechanism**:
   - It avoids spamming the admin’s mailbox by implementing **rate-limiting** and **de-duplication**.
@@ -80,39 +79,30 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 
 
 <!-- TechStack -->
-## 🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 | Platform       | Technologies Used                                |
 |----------------|--------------------------------------------------|
 | Language       | Python                                           |
 | Core Modules   | `subprocess` (to run journalctl), `smtplib` (for email alerts), `time`, `collections` |
 | System Tools   | `journalctl -f` (real-time log monitoring, Linux systemd logs) |
-| Platform       | Oracle VM VirtualBox, Kali Linux (systemd-based distributions) |
+| Platform       | Oracle VM VirtualBox with Kali Linux (systemd-based distributions) |
 | Email Service  | Python SMTP (configurable with Gmail/Custom SMTP servers) |
 
 
 <!-- Features -->
 ### :dart: Features
 
-- 🔍 Real-time Log Monitoring – Continuously tracks Linux system logs using `journalctl -f`.
-- 🚨 Immediate Email Alerts – Notifies the system administrator via SMTP when suspicious logs are detected.
-- 📦 Rate-Limiting & De-duplication – Prevents mailbox spam by suppressing duplicate alerts during a cooldown period.
-- 📊 Summary Emails – Sends a single digest summarizing how many times a log line repeated during cooldown.
-- 🛡️ Brute-Force Attack Detection – Captures multiple failed login attempts and alerts efficiently.
-- ⚡ Lightweight & Fast – Pure Python with no heavy dependencies; uses built-in modules (`subprocess`, `smtplib`, etc.).
-- 🖥️ Linux-Specific – Designed for systemd-based distributions, making use of `journalctl` for log access.
-- ⚙️ Configurable – Adjustable rate-limit duration, email settings, and monitored log patterns.
+- 🔍 **Real-time Log Monitoring** – Continuously tracks Linux system logs using `journalctl -f`.
+- 🚨 **Immediate Email Alerts** – Notifies the system administrator via SMTP when suspicious logs are detected.
+- 📦 **Rate-Limiting & De-duplication** – Prevents mailbox spam by suppressing duplicate alerts during a cooldown period.
+- 📊 **Summary Emails** – Sends a single digest summarizing how many times a log line repeated during cooldown.
+- 🛡️ **Brute-Force Attack Detection** – Captures multiple failed login attempts and alerts efficiently.
+- ⚡ **Lightweight & Fast** – Pure Python with no heavy dependencies; uses built-in modules (`subprocess`, `smtplib`, etc.).
+- 🖥️ **Linux-Specific** – Designed for systemd-based distributions, making use of `journalctl` for log access.
+- ⚙️ **Configurable** – Adjustable rate-limit duration, email settings, and monitored log patterns.
 
-<!-- Env Variables -->
-### :key: Environment Variables
-
-To run this project, you will need to add the following environment variables. Keep them ready and proceed with [getting started](#'Getting Started')
-
-```env
-SENDER_EMAIL=from@example.com
-SENDER_EMAIL_PASS=aaaa bbbb cccc dddd
-RECEIVER_EMAIL=receiver@example.com
-```
+---
 
 <!-- Getting Started -->
 ## 	:toolbox: Getting Started
@@ -120,19 +110,32 @@ RECEIVER_EMAIL=receiver@example.com
 <!-- Prerequisites -->
 ### :bangbang: Prerequisites
 
-- 🐍 Python 3.8+ installed
-- 📦 pip (Python package manager)
+- 🐍 Python 3.8+ & pip installed
 - 🐧 Linux system with systemd (project relies on journalctl)
 - 📬 SMTP-enabled email account (e.g., Gmail, Outlook, or custom SMTP server)
 - 🔑 App Password / SMTP credentials (if using Gmail or a secured mail provider)
-- 🛠️ A virtual environment (venv or virtualenv) to keep dependencies isolated.
 - 📡 Internet access (to send email notifications).
 
+
+---
+
+<!-- Env Variables -->
+### :key: Environment Variables
+
+To run this project, you will need to add the following environment variables.
+
+```env
+SENDER_EMAIL=from@example.com
+SENDER_EMAIL_PASS=aaaa bbbb cccc dddd
+RECEIVER_EMAIL=receiver@example.com
+```
+
+---
 
 <!-- Installation -->
 ### :gear: Installation
 
-Clone the repository [log_monitoring_and_alert](https://github.com/Adhik-6/log-monitor-alert) in `/opt/logmonitor`
+Clone the repository 
 ```bash
 sudo mkdir -p /opt/logmonitor
 sudo git clone https://github.com/Adhik-6/log-monitor-alert /opt/logmonitor
@@ -146,7 +149,8 @@ source .venv/bin/activate
 pip install -U pip
 pip install -r requirements.txt  
 ```
-   
+
+---
 
 <!-- Run Locally -->
 ### :running: Setup
@@ -158,26 +162,27 @@ Keeps things safer than running as root.
 sudo useradd --system --no-create-home --shell /usr/sbin/nologin logmon
 sudo chown -R logmon:logmon /opt/logmonitor
 ```
-A dedicated service user has been created for running the log monitoring service with no home directory and a restricted shell. We then give ownership of the log monitoring directory to this user for better security.
+A dedicated service user will be created for running the log monitoring service with no home directory and a restricted shell. We then give ownership of the log monitoring directory to this user for better security.
 
 **2. Give the service user permission to read the journal**
 
-Depending on distro, it’s either systemd-journal or adm. Add to both safely:
+Depending on distro, it’s either `systemd-journal` or `adm`. Add to both safely:
 ```bash
 getent group systemd-journal && sudo usermod -aG systemd-journal logmon
+# OR
 getent group adm && sudo usermod -aG adm logmon
 ```
 
 **3. Put secrets in an env file**
 
-Make sure your env file contains all the below specified variables.
+Create an env file to have the below specified variables and make it readable by everyone and writable only by the root.
 ```bash
 sudo bash -c 'cat >/etc/default/logmonitor <<EOF
 SENDER_EMAIL=from@example.com
 SENDER_EMAIL_PASS=aaaa bbbb cccc dddd
 RECEIVER_EMAIL=receiver@example.com
 EOF'
-sudo chmod 600 /etc/default/logmonitor
+sudo chmod 644 /etc/default/logmonitor
 sudo chown root:root /etc/default/logmonitor
 ```
 
@@ -216,8 +221,7 @@ ReadWritePaths=/opt/logmonitor
 WantedBy=multi-user.target
 EOF'
 ```
-> If you didn’t use a venv, point ExecStart to `/usr/bin/python3 /opt/logmonitor/run.py`
-> Also, Make sure to change the `EnvironmentFile` to point to the correct location of your env file.
+> If you didn’t use a venv, point ExecStart to `/usr/bin/python3 /opt/logmonitor/run.py`. Also, Make sure to change the `EnvironmentFile` to point to the correct location of your env file.
 
 **5. Start and enable the service**
 ```bash
@@ -227,16 +231,13 @@ systemctl status logmonitor
 sudo systemctl restart logmonitor # Restart the service if needed
 ```
 
-**6. Monitor logs**
-```bash
-journalctl -u logmonitor -f
-```
-
-**7. Stop the service**
+**6. Stop the service**
 ```bash
 sudo systemctl stop logmonitor # Stop the currently running service
 sudo systemctl disable logmonitor # Disable the service from starting on boot *Does not stop if currently running*
 ```
+
+---
 
 <!-- Running Tests -->
 ### :test_tube: Running Tests
@@ -248,25 +249,12 @@ su - # trying to login in as root
 # Enter wrong password
 ```
 
+You can view the logs using the below command
+```bash
+sudo journalctl -u logmonitor -f
+```
 
-<!-- Usage -->
-## :eyes: Usage
-
-The Log Monitoring and Alert System is designed for system administrators who want real-time visibility into critical log events without being glued to the terminal.
-
-Once started, the script will:
-- Continuously monitor system logs (`journalctl -f`).
-- Detect suspicious entries such as **failed login attempts**, **sudo misuse**, or **segfaults**.
-- Send an **immediate email alert** when a new issue appears.
-- Apply **rate-limiting** to avoid mailbox spam during brute-force attacks.
-- Summarize repeated log lines into a **single digest email** after the cooldown.
-
-This makes it useful for:
-- 🔐 Securing Linux servers against brute-force attacks
-- 📊 Monitoring privilege escalation attempts
-- 💾 Detecting kernel crashes, OOM (Out-of-Memory) events, and segfaults
-- 📬 Keeping system admins in the loop even when they’re away from the server
-
+---
 
 <!-- ROADMAP -->
 ## :compass: Roadmap
@@ -279,6 +267,9 @@ This makes it useful for:
 - [ ] Provide pre-built packages (.deb, .rpm, PyPI release) for easy installation
 
 See the [open issues](https://github.com/Adhik-6/log-monitor-alert/issues) for a full list of proposed features (and known issues).
+
+
+---
 
 
 <!-- CONTRIBUTING -->
@@ -295,27 +286,49 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+---
 
 <!-- FAQ -->
 ## :grey_question: FAQ
 
-- Do I need root privileges to run this tool?
-  + Not always. If your user has permission to read logs via `journalctl`, you’re good. Otherwise, you may need to run with `sudo`.
+<details>
+  <summary>Do I need root privileges to run this tool?</summary>
 
-- Will this work on Windows or macOS?
-  + No. This project is **Linux-specific** because it relies on `journalctl` (systemd). For other platforms, you’d need to adapt it to their log systems.
+  Not always. If your user has permission to read logs via `journalctl`, you’re good. Otherwise, you may need to run with `sudo`.
 
-- Can I use this with Gmail/Outlook for alerts?
-  + Yes! Just configure your SMTP credentials. For Gmail, you may need an **App Password**.
+</details>
 
-- Won’t my inbox get flooded during brute-force attacks?
-  + Nope 🚫📬. The tool has **rate-limiting** + **de-duplication**, so repeated identical log entries are suppressed and summarized into a single email after the cooldown.
+<details>
+  <summary>Will this work on Windows or macOS?</summary>
 
-- What happens if my server loses internet temporarily?
-  + The script won’t be able to send emails during downtime, but it will continue monitoring logs. Once the connection is restored, it resumes sending alerts.
-  
-- How do I stop the tool if it’s running?
-  + Just press `sudo systemctl disable logmonitor` in the terminal to stop monitoring.
+  No. This project is **Linux-specific** because it relies on `journalctl` (systemd). For other platforms, you’d need to adapt it to their log systems.
+</details>
+
+<details>
+  <summary>Can I use this with Gmail/Outlook for alerts?</summary>
+
+  Yes! Just configure your SMTP credentials. For Gmail, you may need an **App Password**.
+</details>
+
+<details>
+  <summary>Won’t my inbox get flooded during brute-force attacks?</summary>
+
+  Nope 🚫📬. The tool has **rate-limiting** + **de-duplication**, so repeated identical log entries are suppressed and summarized into a single email after the cooldown.
+</details>
+
+<details>
+  <summary>What happens if my server loses internet temporarily?</summary>
+
+  The script won’t be able to send emails during downtime, but it will continue monitoring logs. Once the connection is restored, it resumes sending alerts.
+</details>
+
+<details>
+  <summary>How do I stop the tool if it’s running?</summary>
+
+  Just press `sudo systemctl disable logmonitor` in the terminal to stop monitoring.
+</details>
+
+---
 
 
 <!-- Acknowledgments -->
