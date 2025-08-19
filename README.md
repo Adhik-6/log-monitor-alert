@@ -77,6 +77,7 @@ What makes this tool effective is its **intelligent alerting mechanism**:
 
 This ensures that the admin is **alerted instantly to new threats** while still receiving a **concise summary of recurring issues** — striking the right balance between **responsiveness** and **signal-to-noise ratio**.
 
+---
 
 <!-- TechStack -->
 ### 🛠️ Tech Stack
@@ -89,6 +90,7 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 | Platform       | Oracle VM VirtualBox with Kali Linux (systemd-based distributions) |
 | Email Service  | Python SMTP (configurable with Gmail/Custom SMTP servers) |
 
+---
 
 <!-- Features -->
 ### :dart: Features
@@ -254,7 +256,6 @@ You can view the logs using the below command
 sudo journalctl -u logmonitor -f
 ```
 
----
 
 <!-- ROADMAP -->
 ## :compass: Roadmap
@@ -268,8 +269,6 @@ sudo journalctl -u logmonitor -f
 
 See the [open issues](https://github.com/Adhik-6/log-monitor-alert/issues) for a full list of proposed features (and known issues).
 
-
----
 
 
 <!-- CONTRIBUTING -->
@@ -286,7 +285,6 @@ Don't forget to give the project a star! Thanks again!
 4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
----
 
 <!-- FAQ -->
 ## :grey_question: FAQ
@@ -327,8 +325,6 @@ Don't forget to give the project a star! Thanks again!
 
   Just press `sudo systemctl disable logmonitor` in the terminal to stop monitoring.
 </details>
-
----
 
 
 <!-- Acknowledgments -->
