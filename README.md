@@ -107,7 +107,7 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 # 	:toolbox: Getting Started
 
 <!-- Prerequisites -->
-### :bangbang: Prerequisites
+## :bangbang: Prerequisites
 
 - 🐍 Python 3.8+ & pip installed
 - 🐧 Linux system with systemd (project relies on journalctl)
@@ -118,7 +118,7 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 
 
 <!-- Env Variables -->
-### :key: Environment Variables
+## :key: Environment Variables
 
 To run this project, you will need to add the following environment variables.
 
@@ -130,7 +130,7 @@ RECEIVER_EMAIL=receiver@example.com
 
 
 <!-- Installation -->
-### :gear: Installation
+## :gear: Installation
 
 Clone the repository 
 ```bash
@@ -149,7 +149,7 @@ pip install -r requirements.txt
 
 
 <!-- Run Locally -->
-### :running: Setup
+## :running: Setup
 
 **1. Create a dedicated service user**
 
@@ -235,7 +235,7 @@ sudo systemctl disable logmonitor # Disable the service from starting on boot *D
 
 
 <!-- Running Tests -->
-### :test_tube: Running Tests
+## :test_tube: Running Tests
 
 To run tests, run the following command
 ```bash
@@ -251,7 +251,7 @@ sudo journalctl -u logmonitor -f
 
 
 <!-- ROADMAP -->
-## :compass: Roadmap
+# :compass: Roadmap
 
 - [ ] Add support for multiple alert channels (Slack, Discord, Telegram, SMS) in addition to email
 - [ ] Build a dashboard GUI to view logs, alerts, and suppression stats in real time
@@ -265,7 +265,7 @@ See the [open issues](https://github.com/Adhik-6/log-monitor-alert/issues) for a
 
 
 <!-- CONTRIBUTING -->
-## :wave: Contributing
+# :wave: Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
@@ -280,7 +280,7 @@ Don't forget to give the project a star! Thanks again!
 
 
 <!-- FAQ -->
-## :grey_question: FAQ
+# :grey_question: FAQ
 
 <details>
   <summary>Do I need root privileges to run this tool?</summary>
@@ -321,7 +321,7 @@ Don't forget to give the project a star! Thanks again!
 
 
 <!-- Acknowledgments -->
-## :gem: Acknowledgements
+# :gem: Acknowledgements
 
  - [ChartGPT](https://chatgpt.com)
  - [Shields.io](https://shields.io/)
