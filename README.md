@@ -77,7 +77,6 @@ What makes this tool effective is its **intelligent alerting mechanism**:
 
 This ensures that the admin is **alerted instantly to new threats** while still receiving a **concise summary of recurring issues** — striking the right balance between **responsiveness** and **signal-to-noise ratio**.
 
----
 
 <!-- TechStack -->
 ### 🛠️ Tech Stack
@@ -90,7 +89,6 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 | Platform       | Oracle VM VirtualBox with Kali Linux (systemd-based distributions) |
 | Email Service  | Python SMTP (configurable with Gmail/Custom SMTP servers) |
 
----
 
 <!-- Features -->
 ### :dart: Features
@@ -118,7 +116,6 @@ This ensures that the admin is **alerted instantly to new threats** while still 
 - 📡 Internet access (to send email notifications).
 
 
----
 
 <!-- Env Variables -->
 ### :key: Environment Variables
@@ -131,7 +128,6 @@ SENDER_EMAIL_PASS=aaaa bbbb cccc dddd
 RECEIVER_EMAIL=receiver@example.com
 ```
 
----
 
 <!-- Installation -->
 ### :gear: Installation
@@ -151,7 +147,6 @@ pip install -U pip
 pip install -r requirements.txt  
 ```
 
----
 
 <!-- Run Locally -->
 ### :running: Setup
@@ -238,7 +233,6 @@ sudo systemctl stop logmonitor # Stop the currently running service
 sudo systemctl disable logmonitor # Disable the service from starting on boot *Does not stop if currently running*
 ```
 
----
 
 <!-- Running Tests -->
 ### :test_tube: Running Tests
