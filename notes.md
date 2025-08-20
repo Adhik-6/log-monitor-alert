@@ -8,6 +8,13 @@
 - [ ] Store alerts and logs in structured directories with proper permissions
 - [ ] Harden log access using chmod, auditctl, or SELinux contexts
 
+## Report doubt
+1. Title page
+   - month name 
+2. Bonafide page
+   - From and To month 
+   - Internal Guide inital & studies. HOD details 
+
 ## Note
 - Cron is Not suitable here so we are using this as a systemd Service.
 

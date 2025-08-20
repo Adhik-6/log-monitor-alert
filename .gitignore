@@ -1,9 +1,6 @@
 # Created by https://www.toptal.com/developers/gitignore/api/python,windows,linux,flask
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,windows,linux,flask
 
-### Others ###
-notes.md
-
 ### Flask ###
 instance/*
 !instance/.gitignore
@@ -305,5 +302,8 @@ $RECYCLE.BIN/
 
 ### Needed ###
 !sample.log
+
+### Others ###
+notes.md
 
 # End of https://www.toptal.com/developers/gitignore/api/python,windows,linux,flask
